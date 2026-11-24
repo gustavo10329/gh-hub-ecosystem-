@@ -1,0 +1,37 @@
+-- GH HUB PREMIUM
+-- Configuración del navegador de servidores públicos
+
+local Servers = {}
+
+Servers.PlaceId = "104715542330896"
+Servers.RefreshInterval = 30
+
+Servers.List = {}
+
+function Servers.Clear()
+    Servers.List = {}
+end
+
+function Servers.Add(server)
+    if type(server) ~= "table" then
+        return false
+    end
+
+    table.insert(Servers.List, server)
+    return true
+end
+
+function Servers.GetAvailable()
+    local available = {}
+
+    for _, server in ipairs(Servers.List) do
+        if server.playing and server.maxPlayers
+        and server.playing < server.maxPlayers then
+            table.insert(available, server)
+        end
+    end
+
+    return available
+end
+
+return Servers
