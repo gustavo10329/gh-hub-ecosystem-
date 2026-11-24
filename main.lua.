@@ -1,0 +1,16 @@
+-- GH HUB PREMIUM
+-- Punto de inicio del prototipo
+
+local Config = require(script.Parent.config)
+local License = require(script.Parent.license)
+
+print(Config.Name .. " v" .. Config.Version)
+
+local valid, message = License.check("")
+
+if not valid then
+    warn(message)
+    return
+end
+
+print("Licencia validada")
