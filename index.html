@@ -5,189 +5,76 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>GH HUB PREMIUM</title>
-
 <style>
 *{box-sizing:border-box}
-
 body{
- margin:0;
- min-height:100vh;
- background:
- radial-gradient(ellipse at 15% 20%,#41105e 0,transparent 35%),
- radial-gradient(ellipse at 85% 80%,#281044 0,transparent 40%),
- #050309;
- color:white;
+ margin:0;padding:10px;min-height:100vh;color:white;
  font-family:Arial,sans-serif;
- padding:12px;
+ background:radial-gradient(ellipse at 15% 15%,#282078 0,transparent 38%),
+ radial-gradient(ellipse at 85% 85%,#50106b 0,transparent 40%),#05040c;
 }
-
 .app{
- max-width:1100px;
- margin:15px auto;
- border:1px solid #8736bb;
- border-radius:18px;
- overflow:hidden;
- background:rgba(8,5,15,.94);
- box-shadow:0 0 35px #9c28e855;
+ max-width:1150px;margin:15px auto;overflow:hidden;
+ border:1px solid #6945b9;border-radius:17px;
+ background:rgba(7,7,17,.96);
+ box-shadow:0 0 35px #7339c955;
 }
-
 header{
- display:flex;
- align-items:center;
- justify-content:space-between;
- gap:10px;
- padding:15px;
- background:linear-gradient(100deg,#170923,#35104e,#100819);
- border-bottom:1px solid #7731a7;
- flex-wrap:wrap;
+ display:flex;align-items:center;justify-content:space-between;
+ gap:12px;flex-wrap:wrap;padding:16px;
+ background:linear-gradient(100deg,#10102b,#25134b,#101027);
+ border-bottom:1px solid #59419b;
 }
-
-.logo{
- color:#d58aff;
- font-size:25px;
- font-weight:900;
- font-style:italic;
- text-shadow:0 0 15px #b52dff;
-}
-
-.actions{display:flex;gap:7px;flex-wrap:wrap}
-
+.logo{color:#c7a2ff;font-size:25px;font-weight:900;text-shadow:0 0 15px #934cff}
+.actions,.tabs,.filters{display:flex;flex-wrap:wrap;gap:8px}
 button{
- cursor:pointer;
- color:white;
- background:#1d1029;
- border:1px solid #71349c;
- border-radius:9px;
- padding:10px 13px;
- font-weight:bold;
+ cursor:pointer;color:white;background:#17152e;
+ border:1px solid #6550a0;border-radius:8px;
+ padding:10px 13px;font-weight:bold;
 }
-
-button:hover{background:#542078}
-
-.tabs{
- display:flex;
- gap:8px;
- padding:12px;
- border-bottom:1px solid #442052;
+button:hover{background:#50328b}
+.tab.active,.filter.active{background:#6035a8;border-color:#ae82ff}
+.content{padding:15px}
+h2{margin:5px 0 15px;color:#c6a0ff;font-size:18px}
+.filters{margin-bottom:15px}
+.filter{min-width:95px}
+.status{color:#aaa1c5;font-size:12px;margin:12px 0}
+.live{
+ display:flex;align-items:center;gap:7px;
+ color:#a8ffc8;font-size:11px;font-weight:bold;
 }
-
-.tab.active,.filter.active{
- background:#8129bd;
- box-shadow:0 0 12px #a42de7;
-}
-
-.content{padding:14px}
-
-h2{
- color:#d58aff;
- font-size:17px;
- margin:5px 0 13px;
-}
-
-.filters{
- display:flex;
- gap:8px;
- flex-wrap:wrap;
- margin-bottom:14px;
-}
-
-.filter{min-width:100px}
-
-.table-wrap{
- overflow-x:auto;
- border:1px solid #54256f;
- border-radius:10px;
-}
-
-table{
- width:100%;
- min-width:720px;
- border-collapse:collapse;
- font-size:12px;
-}
-
-th{
- color:#bd65f0;
- background:#160d20;
- padding:12px 8px;
- text-align:left;
-}
-
-td{
- padding:10px 8px;
- border-top:1px solid #281733;
- white-space:nowrap;
-}
-
-tr:hover{background:#20112e}
-
-.rarity{
- color:#d58aff;
- font-weight:bold;
-}
-
-.join{
- color:#72ffae;
- border-color:#28a66b;
- padding:5px 12px;
-}
-
-.join:disabled{
- opacity:.7;
- cursor:not-allowed;
-}
-
-.status{
- color:#b9a3c9;
- font-size:12px;
- margin:10px 0;
-}
-
-.panel{
- background:#130c1d;
- border:1px solid #54256f;
- border-radius:12px;
- padding:16px;
- margin-top:12px;
-}
-
+.dot{width:8px;height:8px;border-radius:50%;background:#42f59b;box-shadow:0 0 10px #42f59b}
+.table-wrap{overflow-x:auto;border:1px solid #403366;border-radius:10px}
+table{width:100%;min-width:740px;border-collapse:collapse;font-size:12px}
+th{padding:13px 10px;text-align:left;color:#c6a0ff;background:#171329}
+td{padding:13px 10px;border-top:1px solid #29213e;white-space:nowrap}
+.empty{padding:35px 15px;text-align:center;color:#aaa1c5}
+.empty strong{display:block;margin-bottom:8px;color:#c6a0ff;font-size:15px}
+.panel{padding:17px;margin-top:12px;border:1px solid #403366;border-radius:11px;background:#111023}
+.panel h3{color:#c6a0ff}
 .hidden{display:none}
-
-footer{
- text-align:center;
- color:#a77ac0;
- padding:16px;
- border-top:1px solid #351b46;
- font-size:12px;
-}
-
+footer{padding:16px;text-align:center;color:#8f83ad;border-top:1px solid #30264d;font-size:12px}
 @media(max-width:550px){
- body{padding:5px}
- .logo{font-size:21px}
- header{padding:12px}
- button{padding:9px;font-size:11px}
- .content{padding:9px}
+ body{padding:5px}header{padding:12px}.logo{font-size:21px}
+ button{padding:9px;font-size:11px}.content{padding:10px}
 }
 </style>
 </head>
-
 <body>
 <div class="app">
 
 <header>
  <div class="logo">♛ GH HUB</div>
  <div class="actions">
-  <button onclick="showMessage('Guardado pendiente de conexión.')">SAVE</button>
-  <button onclick="showMessage('WEAPONS: apartado visual.')">WEAPONS</button>
+  <button onclick="saveItems()">SAVE</button>
+  <button onclick="openTab('weapons')">WEAPONS</button>
   <button onclick="refreshItems()">REFRESH ⟳</button>
  </div>
 </header>
 
 <div class="tabs">
- <button class="tab active" id="liveTab"
- onclick="openTab('live')">LIVE ITEMS</button>
- <button class="tab" id="serverTab"
- onclick="openTab('servers')">SERVERS</button>
+ <button class="tab active" id="liveTab" onclick="openTab('live')">LIVE ITEMS</button>
+ <button class="tab" id="serverTab" onclick="openTab('servers')">SERVERS</button>
 </div>
 
 <div class="content" id="livePage">
@@ -200,24 +87,28 @@ footer{
   <button class="filter" onclick="filterItems('EPIC',this)">★ EPIC</button>
  </div>
 
- <p class="status" id="status">
-  DEMO MODE · Datos de ejemplo, conexión real pendiente.
- </p>
+ <div class="live"><span class="dot"></span> LIVE SCANNER</div>
+ <p class="status" id="status">Esperando conexión con la fuente de datos de BlockSpin.</p>
 
  <div class="table-wrap">
- <table>
-  <thead>
-   <tr>
-    <th>WEAPON</th>
-    <th>RARITY</th>
-    <th>PLR</th>
-    <th>AGE</th>
-    <th>JOB ID</th>
-    <th>JOIN</th>
-   </tr>
-  </thead>
-  <tbody id="items"></tbody>
- </table>
+  <table>
+   <thead>
+    <tr>
+     <th>ITEM</th>
+     <th>RARITY</th>
+     <th>PLR</th>
+     <th>AGE</th>
+     <th>JOB ID</th>
+     <th>JOIN</th>
+    </tr>
+   </thead>
+   <tbody id="items">
+    <tr><td colspan="6" class="empty">
+     <strong>NO LIVE ITEMS FOUND</strong>
+     No hay datos reales conectados todavía.
+    </td></tr>
+   </tbody>
+  </table>
  </div>
 </div>
 
@@ -225,80 +116,61 @@ footer{
  <h2>✦ PUBLIC SERVERS</h2>
  <div class="panel">
   <h3>SERVER BROWSER</h3>
-  <p class="status">
-   La conexión con los servidores públicos todavía está pendiente.
-  </p>
+  <p class="status">La conexión con los servidores públicos está pendiente.</p>
   <p>Jugadores: --</p>
   <p>Espacios disponibles: --</p>
-  <button onclick="showMessage('Conexión de servidores pendiente.')">
-   REFRESH SERVERS ⟳
-  </button>
+  <button onclick="refreshServers()">REFRESH SERVERS ⟳</button>
  </div>
 </div>
 
-<footer>
- GH HUB PREMIUM · VERSION 1.1
-</footer>
+<div class="content hidden" id="weaponsPage">
+ <h2>✦ WEAPONS</h2>
+ <div class="panel">
+  <p class="status">Los objetos se mostrarán cuando exista una fuente real de datos.</p>
+ </div>
+</div>
 
+<footer>GH HUB PREMIUM · VERSION 1.2</footer>
 </div>
 
 <script>
-const demoItems=[
- {name:"Anaconda",rarity:"OMEGA",players:"19/30",age:"1m 38s",id:"DEMO-001"},
- {name:"Anaconda",rarity:"OMEGA",players:"5/30",age:"3m 49s",id:"DEMO-002"},
- {name:"Remington",rarity:"LEGENDARY",players:"23/30",age:"0s",id:"DEMO-003"},
- {name:"RPG",rarity:"LEGENDARY",players:"20/30",age:"6s",id:"DEMO-004"},
- {name:"MP5",rarity:"LEGENDARY",players:"11/30",age:"7s",id:"DEMO-005"},
- {name:"Tactical Knife",rarity:"LEGENDARY",players:"9/30",age:"7s",id:"DEMO-006"},
- {name:"AK47",rarity:"EPIC",players:"20/30",age:"13s",id:"DEMO-007"},
- {name:"MP5",rarity:"EPIC",players:"7/30",age:"15s",id:"DEMO-008"}
-];
+let currentFilter="ALL";
 
-function renderItems(filter="ALL"){
- const tbody=document.getElementById("items");
- tbody.innerHTML="";
+function openTab(tab){
+ const pages={
+  live:"livePage",
+  servers:"serversPage",
+  weapons:"weaponsPage"
+ };
 
- demoItems
- .filter(item=>filter==="ALL"||item.rarity===filter)
- .forEach(item=>{
-  const tr=document.createElement("tr");
-  tr.innerHTML=`
-   <td>★ ${item.name}</td>
-   <td class="rarity">${item.rarity}</td>
-   <td>${item.players}</td>
-   <td>${item.age}</td>
-   <td>${item.id}</td>
-   <td><button class="join" disabled>JOIN</button></td>
-  `;
-  tbody.appendChild(tr);
+ Object.values(pages).forEach(id=>{
+  document.getElementById(id).classList.add("hidden");
  });
+
+ document.getElementById(pages[tab]).classList.remove("hidden");
+
+ document.getElementById("liveTab").classList.toggle("active",tab==="live");
+ document.getElementById("serverTab").classList.toggle("active",tab==="servers");
 }
 
 function filterItems(rarity,button){
- document.querySelectorAll(".filter")
- .forEach(b=>b.classList.remove("active"));
+ currentFilter=rarity;
+ document.querySelectorAll(".filter").forEach(b=>b.classList.remove("active"));
  button.classList.add("active");
- renderItems(rarity);
-}
-
-function openTab(tab){
- const live=tab==="live";
- document.getElementById("livePage").classList.toggle("hidden",!live);
- document.getElementById("serversPage").classList.toggle("hidden",live);
- document.getElementById("liveTab").classList.toggle("active",live);
- document.getElementById("serverTab").classList.toggle("active",!live);
-}
-
-function showMessage(message){
- document.getElementById("status").textContent=message;
 }
 
 function refreshItems(){
- showMessage("Actualización pendiente: todavía no hay conexión de datos reales.");
+ document.getElementById("status").textContent=
+ "Esperando conexión: todavía no hay una fuente de objetos en vivo.";
 }
 
-renderItems();
-</script>
+function refreshServers(){
+ alert("La conexión de servidores todavía está pendiente.");
+}
 
+function saveItems(){
+ alert("La función SAVE estará disponible cuando conectemos los datos reales.");
+}
+</script>
 </body>
 </html>
