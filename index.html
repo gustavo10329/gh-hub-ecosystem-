@@ -3,174 +3,274 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>GH HUB PREMIUM</title>
 <style>
 *{box-sizing:border-box}
 body{
- margin:0;padding:10px;min-height:100vh;color:white;
- font-family:Arial,sans-serif;
- background:radial-gradient(ellipse at 15% 15%,#282078 0,transparent 38%),
- radial-gradient(ellipse at 85% 85%,#50106b 0,transparent 40%),#05040c;
+ margin:0;padding:18px;color:#fff;font-family:Arial,sans-serif;
+ min-height:100vh;
+ background:radial-gradient(ellipse at 15% 15%,#42106a,transparent 38%),
+ radial-gradient(ellipse at 85% 80%,#101e57,transparent 40%),#070711;
 }
-.app{
- max-width:1150px;margin:15px auto;overflow:hidden;
- border:1px solid #6945b9;border-radius:17px;
- background:rgba(7,7,17,.96);
- box-shadow:0 0 35px #7339c955;
-}
-header{
- display:flex;align-items:center;justify-content:space-between;
- gap:12px;flex-wrap:wrap;padding:16px;
- background:linear-gradient(100deg,#10102b,#25134b,#101027);
- border-bottom:1px solid #59419b;
-}
-.logo{color:#c7a2ff;font-size:25px;font-weight:900;text-shadow:0 0 15px #934cff}
-.actions,.tabs,.filters{display:flex;flex-wrap:wrap;gap:8px}
-button{
- cursor:pointer;color:white;background:#17152e;
- border:1px solid #6550a0;border-radius:8px;
- padding:10px 13px;font-weight:bold;
-}
-button:hover{background:#50328b}
-.tab.active,.filter.active{background:#6035a8;border-color:#ae82ff}
-.content{padding:15px}
-h2{margin:5px 0 15px;color:#c6a0ff;font-size:18px}
-.filters{margin-bottom:15px}
-.filter{min-width:95px}
-.status{color:#aaa1c5;font-size:12px;margin:12px 0}
-.live{
- display:flex;align-items:center;gap:7px;
- color:#a8ffc8;font-size:11px;font-weight:bold;
-}
-.dot{width:8px;height:8px;border-radius:50%;background:#42f59b;box-shadow:0 0 10px #42f59b}
-.table-wrap{overflow-x:auto;border:1px solid #403366;border-radius:10px}
-table{width:100%;min-width:740px;border-collapse:collapse;font-size:12px}
-th{padding:13px 10px;text-align:left;color:#c6a0ff;background:#171329}
-td{padding:13px 10px;border-top:1px solid #29213e;white-space:nowrap}
-.empty{padding:35px 15px;text-align:center;color:#aaa1c5}
-.empty strong{display:block;margin-bottom:8px;color:#c6a0ff;font-size:15px}
-.panel{padding:17px;margin-top:12px;border:1px solid #403366;border-radius:11px;background:#111023}
-.panel h3{color:#c6a0ff}
-.hidden{display:none}
-footer{padding:16px;text-align:center;color:#8f83ad;border-top:1px solid #30264d;font-size:12px}
-@media(max-width:550px){
- body{padding:5px}header{padding:12px}.logo{font-size:21px}
- button{padding:9px;font-size:11px}.content{padding:10px}
+.container{max-width:1150px;margin:auto}
+.header{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:15px;margin-bottom:24px}
+.logo{font-size:25px;font-weight:900;letter-spacing:2px;color:#d7a0ff;text-shadow:0 0 15px #a020f0}
+.logo span{color:white}
+.status{color:#7dffbd;font-size:11px;margin-top:7px}
+.actions,.filters{display:flex;gap:8px;flex-wrap:wrap}
+button{border:1px solid #7435a7;background:#171025;color:white;border-radius:8px;padding:10px 14px;font-weight:bold;cursor:pointer}
+button:hover{background:#53217b;box-shadow:0 0 12px #922be8}
+.primary{background:linear-gradient(100deg,#7725b8,#3d42a9);border:0}
+.panel{background:rgba(15,12,29,.94);border:1px solid #47236b;border-radius:13px;padding:18px;box-shadow:0 0 25px #6d18a51c}
+.tabs{display:flex;gap:8px;border-bottom:1px solid #38204c;margin-bottom:18px}
+.tab{background:transparent;border:0;border-radius:0;color:#a99bb8;padding:13px 18px}
+.tab.active{color:#e2b5ff;border-bottom:2px solid #b34dff}
+.section-title{font-size:15px;font-weight:bold;letter-spacing:1px;margin-bottom:15px}
+.filter.active{background:#7427a7;border-color:#d18aff}
+.stats{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:18px}
+.stat{flex:1;min-width:100px;background:#1c142c;border:1px solid #45245e;padding:13px;border-radius:9px}
+.stat small{display:block;color:#9d8aaf;margin-bottom:6px}
+.stat strong{font-size:20px;color:#e5c0ff}
+.table-wrap{overflow-x:auto}
+table{width:100%;border-collapse:collapse;min-width:650px}
+th{color:#b98de0;background:#21152f;font-size:11px;letter-spacing:1px;text-align:left;padding:14px 10px}
+td{padding:13px 10px;border-bottom:1px solid #30213e;font-size:12px}
+tr:hover td{background:#241632}
+.job{max-width:190px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;color:#bca8d0}
+.join{padding:7px 12px;background:#6825a0;border:0}
+.empty{text-align:center;padding:35px 15px;color:#b5a2c7}
+.empty strong{display:block;font-size:16px;color:#e4c2ff;margin-bottom:9px}
+.load-more{display:block;margin:18px auto 0}
+.hidden{display:none!important}
+#message{color:#bfa0dd;font-size:12px;margin:12px 0;min-height:16px}
+.footer{text-align:center;color:#665b76;font-size:10px;margin-top:20px}
+@media(max-width:600px){
+ body{padding:11px}.logo{font-size:21px}
+ .header{align-items:flex-start}.actions{width:100%}
+ .actions button{flex:1}.panel{padding:12px}
+ .tab{padding:12px 10px;font-size:11px}
 }
 </style>
 </head>
 <body>
-<div class="app">
-
-<header>
- <div class="logo">♛ GH HUB</div>
+<div class="container">
+<header class="header">
+ <div>
+  <div class="logo">GH HUB <span>PREMIUM</span></div>
+  <div class="status">● GH ECOSYSTEM / ONLINE</div>
+ </div>
  <div class="actions">
-  <button onclick="saveItems()">SAVE</button>
-  <button onclick="openTab('weapons')">WEAPONS</button>
-  <button onclick="refreshItems()">REFRESH ⟳</button>
+  <button id="saveBtn">☆ SAVE</button>
+  <button id="weaponsBtn">⚔ WEAPONS</button>
+  <button class="primary" id="refreshBtn">↻ REFRESH</button>
  </div>
 </header>
 
-<div class="tabs">
- <button class="tab active" id="liveTab" onclick="openTab('live')">LIVE ITEMS</button>
- <button class="tab" id="serverTab" onclick="openTab('servers')">SERVERS</button>
-</div>
+<main class="panel">
+<nav class="tabs">
+ <button class="tab active" data-tab="live">LIVE ITEMS</button>
+ <button class="tab" data-tab="servers">SERVERS</button>
+ <button class="tab" data-tab="saved">SAVED</button>
+</nav>
 
-<div class="content" id="livePage">
- <h2>✦ LIVE ITEMS</h2>
-
+<section id="liveSection">
+ <div class="section-title">LIVE ITEMS SCANNER</div>
  <div class="filters">
-  <button class="filter active" onclick="filterItems('ALL',this)">ALL</button>
-  <button class="filter" onclick="filterItems('OMEGA',this)">★ OMEGA</button>
-  <button class="filter" onclick="filterItems('LEGENDARY',this)">★ LEGENDARY</button>
-  <button class="filter" onclick="filterItems('EPIC',this)">★ EPIC</button>
+  <button class="filter active" data-rarity="ALL">ALL</button>
+  <button class="filter" data-rarity="OMEGA">OMEGA</button>
+  <button class="filter" data-rarity="LEGENDARY">LEGENDARY</button>
+  <button class="filter" data-rarity="EPIC">EPIC</button>
  </div>
+ <div class="empty">
+  <strong>NO LIVE ITEMS FOUND</strong>
+  No hay una fuente autorizada de datos de objetos conectada todavía.
+  <br><br>
+  Los servidores públicos de Roblox no revelan las armas u objetos
+  que aparecen dentro de cada partida.
+ </div>
+</section>
 
- <div class="live"><span class="dot"></span> LIVE SCANNER</div>
- <p class="status" id="status">Esperando conexión con la fuente de datos de BlockSpin.</p>
-
+<section id="serversSection" class="hidden">
+ <div class="section-title">PUBLIC SERVER FINDER</div>
+ <div class="stats">
+  <div class="stat"><small>SERVERS LOADED</small><strong id="serverCount">0</strong></div>
+  <div class="stat"><small>PLAYERS FOUND</small><strong id="playerCount">0</strong></div>
+  <div class="stat"><small>STATUS</small><strong id="serverStatus">IDLE</strong></div>
+ </div>
  <div class="table-wrap">
   <table>
-   <thead>
-    <tr>
-     <th>ITEM</th>
-     <th>RARITY</th>
-     <th>PLR</th>
-     <th>AGE</th>
-     <th>JOB ID</th>
-     <th>JOIN</th>
-    </tr>
-   </thead>
-   <tbody id="items">
-    <tr><td colspan="6" class="empty">
-     <strong>NO LIVE ITEMS FOUND</strong>
-     No hay datos reales conectados todavía.
-    </td></tr>
-   </tbody>
+   <thead><tr><th>PLR</th><th>MAX</th><th>PING</th><th>JOB ID</th><th>JOIN</th></tr></thead>
+   <tbody id="serverRows"><tr><td colspan="5" class="empty">Pulsa REFRESH para buscar servidores.</td></tr></tbody>
   </table>
  </div>
-</div>
+ <button class="load-more" id="moreBtn">LOAD MORE SERVERS</button>
+</section>
 
-<div class="content hidden" id="serversPage">
- <h2>✦ PUBLIC SERVERS</h2>
- <div class="panel">
-  <h3>SERVER BROWSER</h3>
-  <p class="status">La conexión con los servidores públicos está pendiente.</p>
-  <p>Jugadores: --</p>
-  <p>Espacios disponibles: --</p>
-  <button onclick="refreshServers()">REFRESH SERVERS ⟳</button>
+<section id="savedSection" class="hidden">
+ <div class="section-title">SAVED SERVERS</div>
+ <div class="table-wrap">
+  <table>
+   <thead><tr><th>PLR</th><th>MAX</th><th>JOB ID</th><th>JOIN</th></tr></thead>
+   <tbody id="savedRows"></tbody>
+  </table>
  </div>
-</div>
-
-<div class="content hidden" id="weaponsPage">
- <h2>✦ WEAPONS</h2>
- <div class="panel">
-  <p class="status">Los objetos se mostrarán cuando exista una fuente real de datos.</p>
- </div>
-</div>
-
-<footer>GH HUB PREMIUM · VERSION 1.2</footer>
+ <div id="savedEmpty" class="empty">Todavía no has guardado servidores.</div>
+</section>
+<div id="message"></div>
+</main>
+<footer class="footer">GH HUB PREMIUM · GH ECOSYSTEM</footer>
 </div>
 
 <script>
-let currentFilter="ALL";
+const WORKER="https://gh-hub-premium.gustavogudiel967.workers.dev";
+const PLACE_ID="104715542330896";
 
-function openTab(tab){
- const pages={
-  live:"livePage",
-  servers:"serversPage",
-  weapons:"weaponsPage"
- };
+let servers=[];
+let cursor=null;
+let saved=[];
 
- Object.values(pages).forEach(id=>{
-  document.getElementById(id).classList.add("hidden");
+const $=id=>document.getElementById(id);
+
+function message(text){$("message").textContent=text}
+
+function showTab(tab){
+ ["live","servers","saved"].forEach(name=>{
+  $(name+"Section").classList.toggle("hidden",name!==tab);
  });
-
- document.getElementById(pages[tab]).classList.remove("hidden");
-
- document.getElementById("liveTab").classList.toggle("active",tab==="live");
- document.getElementById("serverTab").classList.toggle("active",tab==="servers");
+ document.querySelectorAll(".tab").forEach(button=>{
+  button.classList.toggle("active",button.dataset.tab===tab);
+ });
+ if(tab==="saved")renderSaved();
 }
 
-function filterItems(rarity,button){
- currentFilter=rarity;
- document.querySelectorAll(".filter").forEach(b=>b.classList.remove("active"));
- button.classList.add("active");
+document.querySelectorAll(".tab").forEach(button=>{
+ button.addEventListener("click",()=>showTab(button.dataset.tab));
+});
+
+async function loadServers(append=false){
+ $("serverStatus").textContent="LOADING";
+ $("refreshBtn").disabled=true;
+ $("moreBtn").disabled=true;
+ message("Consultando servidores públicos de Roblox...");
+
+ try{
+  let url=WORKER+"/servers?placeId="+PLACE_ID;
+  if(append && cursor)url+="&cursor="+encodeURIComponent(cursor);
+  const response=await fetch(url);
+  if(!response.ok)throw new Error("HTTP "+response.status);
+  const data=await response.json();
+  if(data.error)throw new Error(data.error);
+
+  servers=append?servers.concat(data.servers||[]):(data.servers||[]);
+  cursor=data.nextPageCursor||null;
+  renderServers();
+  $("serverStatus").textContent="ONLINE";
+  message("Servidores públicos cargados correctamente.");
+ }catch(error){
+  $("serverStatus").textContent="ERROR";
+  message("No se pudieron cargar los servidores: "+error.message);
+ }finally{
+  $("refreshBtn").disabled=false;
+  $("moreBtn").disabled=!cursor;
+ }
 }
 
-function refreshItems(){
- document.getElementById("status").textContent=
- "Esperando conexión: todavía no hay una fuente de objetos en vivo.";
+function renderServers(){
+ $("serverCount").textContent=servers.length;
+ $("playerCount").textContent=servers.reduce((sum,s)=>sum+s.playing,0);
+ const tbody=$("serverRows");
+ tbody.innerHTML="";
+
+ if(!servers.length){
+  tbody.innerHTML='<tr><td colspan="5" class="empty">No se encontraron servidores.</td></tr>';
+  return;
+ }
+
+ servers.forEach(server=>{
+  const tr=document.createElement("tr");
+  const values=[server.playing,server.maxPlayers,
+   server.ping==null?"N/D":server.ping+" ms"];
+  values.forEach(value=>{
+   const td=document.createElement("td");
+   td.textContent=value;
+   tr.appendChild(td);
+  });
+
+  const job=document.createElement("td");
+  job.className="job";
+  job.textContent=server.id;
+  job.title=server.id;
+  tr.appendChild(job);
+
+  const action=document.createElement("td");
+  const join=document.createElement("button");
+  join.className="join";
+  join.textContent="JOIN";
+  join.addEventListener("click",()=>joinServer(server.id));
+  action.appendChild(join);
+  tr.appendChild(action);
+  tbody.appendChild(tr);
+ });
 }
 
-function refreshServers(){
- alert("La conexión de servidores todavía está pendiente.");
+function joinServer(jobId){
+ const url="https://www.roblox.com/games/"+PLACE_ID+
+  "?gameInstanceId="+encodeURIComponent(jobId);
+ window.open(url,"_blank");
 }
 
-function saveItems(){
- alert("La función SAVE estará disponible cuando conectemos los datos reales.");
+function renderSaved(){
+ const tbody=$("savedRows");
+ tbody.innerHTML="";
+ $("savedEmpty").classList.toggle("hidden",saved.length>0);
+ saved.forEach(server=>{
+  const tr=document.createElement("tr");
+  [server.playing,server.maxPlayers].forEach(value=>{
+   const td=document.createElement("td");
+   td.textContent=value;
+   tr.appendChild(td);
+  });
+  const id=document.createElement("td");
+  id.className="job";
+  id.textContent=server.id;
+  tr.appendChild(id);
+  const action=document.createElement("td");
+  const button=document.createElement("button");
+  button.className="join";
+  button.textContent="JOIN";
+  button.addEventListener("click",()=>joinServer(server.id));
+  action.appendChild(button);
+  tr.appendChild(action);
+  tbody.appendChild(tr);
+ });
 }
+
+$("refreshBtn").addEventListener("click",()=>loadServers(false));
+$("moreBtn").addEventListener("click",()=>loadServers(true));
+
+$("saveBtn").addEventListener("click",()=>{
+ const server=servers[0];
+ if(!server){message("Primero carga los servidores.");return;}
+ if(!saved.some(s=>s.id===server.id))saved.push(server);
+ renderSaved();
+ message("Servidor guardado.");
+});
+
+$("weaponsBtn").addEventListener("click",()=>{
+ showTab("live");
+ message("El detector de objetos necesita una fuente autorizada del juego.");
+});
+
+document.querySelectorAll(".filter").forEach(button=>{
+ button.addEventListener("click",()=>{
+  document.querySelectorAll(".filter").forEach(b=>b.classList.remove("active"));
+  button.classList.add("active");
+  message("Los filtros de rareza estarán disponibles cuando exista una fuente real de objetos.");
+ });
+});
+
+loadServers(false);
 </script>
 </body>
 </html>
